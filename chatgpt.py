@@ -23,5 +23,5 @@ headers = {
 response = requests.post(url, json=payload, headers=headers)
 response_data = response.json()
 
-generated_text = response_data
+generated_text = response_data['choices'][0]['message']['content']
 print(generated_text)

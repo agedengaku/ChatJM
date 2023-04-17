@@ -12,7 +12,7 @@ question = input("Ask a question... ")
 response = openai.ChatCompletion.create(
   model='gpt-3.5-turbo',
   messages=[
-    {"role": "system", "content": "Answer as concisely as possible unless otherwise instructed."},
+    {"role": "system", "content": "Answer as concisely as possible, unless otherwise instructed."},
     {"role": "user", "content": question}
   ]
 )

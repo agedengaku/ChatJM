@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from token_cost_calculation import calculate_cost
 import os
 import openai
 
@@ -19,11 +20,6 @@ response = openai.ChatCompletion.create(
 
 answer = response['choices'][0]['message']['content']
 total_tokens_used = response['usage']['total_tokens']
-gpt35turbo_rate_per_1000_tokens = 0.002
-gpt35turbo_rate_per_token = gpt35turbo_rate_per_1000_tokens / 1000
-cost_in_usd = total_tokens_used * gpt35turbo_rate_per_token
-usd_to_jpy_rate = 134
-cost_in_yen = cost_in_usd * usd_to_jpy_rate
 
 print(answer)
-print(f"This answer costs ¥{cost_in_yen}.")
+print(f"This answer costs ¥{calculate_cost(total_tokens_used)}.")

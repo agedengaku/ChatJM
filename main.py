@@ -1,8 +1,8 @@
-from chat import askQuestion
+from chat import ask_question
 from token_cost_calculation import calculate_cost
 
 question = input("Ask a question... ")
-response = askQuestion(question)
+response = ask_question(question)
 
 answer = response['choices'][0]['message']['content']
 total_tokens_used = response['usage']['total_tokens']

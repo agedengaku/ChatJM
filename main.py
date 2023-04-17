@@ -7,15 +7,17 @@ load_dotenv()
 
 openai.api_key = os.getenv('CHATGPT_API_KEY')
 
-question = input("Ask a question... ")
+def askQuestion(question):
+  return openai.ChatCompletion.create(
+    model='gpt-3.5-turbo',
+    messages=[
+      {"role": "system", "content": "Answer as concisely as possible, unless otherwise instructed."},
+      {"role": "user", "content": question}
+    ]
+  )
 
-response = openai.ChatCompletion.create(
-  model='gpt-3.5-turbo',
-  messages=[
-    {"role": "system", "content": "Answer as concisely as possible, unless otherwise instructed."},
-    {"role": "user", "content": question}
-  ]
-)
+question = input("Ask a question... ")
+response = askQuestion(question)
 
 answer = response['choices'][0]['message']['content']
 total_tokens_used = response['usage']['total_tokens']

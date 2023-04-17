@@ -6,14 +6,13 @@ import openai
 load_dotenv()
 
 openai.api_key = os.getenv('CHATGPT_API_KEY')
-url = 'https://api.openai.com/v1/chat/completions'
-model = 'gpt-3.5-turbo'
 
 question = input("Ask a question... ")
 
 response = openai.ChatCompletion.create(
-  model=model,
+  model='gpt-3.5-turbo',
   messages=[
+    {"role": "system", "content": "Answer as concisely as possible unless otherwise instructed."},
     {"role": "user", "content": question}
   ]
 )

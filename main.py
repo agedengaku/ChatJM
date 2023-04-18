@@ -4,7 +4,7 @@ import getch
 
 end = "y"
 
-while end == "y":    
+while end == "y":
   question = input("\nAsk a question... ")
   response = ask_question(question)
 

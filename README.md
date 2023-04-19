@@ -22,11 +22,13 @@ And then run this to begin the application:
 
 `python main.py`
 
-The application will ask you to enter a question. Type in your question and press enter. After you get a response, you can continue asking questions by entering "y" when asked to continue.
+## Asking questions
 
-To quit, enter "n" instead.
+The application will ask you to type a question. Press the enter key after typing your question to submit it.
 
-You can now ask follow-up questions. After asking your first question, your second question can be related to the first one, and ChatGPT should respond accordingly.
+You can now ask follow-up questions. ChatGPT will remember previous questions and answers until you quit the application.
+
+To quit the application, type "quit" and press the enter button.
 
 ## ChatGPT details
 

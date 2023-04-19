@@ -2,11 +2,10 @@ from chat import ask_question, create_message, insert_message
 from token_cost_calculation import calculate_cost
 import getch
 
-end = "y"
-
+continue_chat = True
 messages=[{"role": "system", "content": "Answer as concisely as possible, unless otherwise instructed."}]
 
-while end == "y":
+while continue_chat == True:
   question = input("\nAsk a question: ")
   insert_message(messages, create_message("user", question))
   response = ask_question(messages)
@@ -18,12 +17,15 @@ while end == "y":
   print(f"This answer costs ¥{calculate_cost(total_tokens_used)}.\n")
   
   print("Continue? (Press y or n)")
-  end = getch.getch()
+  user_input = getch.getch()
+
+  while user_input not in ["y", "n"]:
+    print("\nInvalid input. Please enter y or n.")
+    user_input = getch.getch()
+
+  if user_input == "n":
+    continue_chat = False
 
   insert_message(messages, create_message("assistant", answer))
-
-  while end not in ["y", "n"]:
-    print("\nInvalid input. Please enter y or n.")
-    end = getch.getch()
 
 print("\nGoodbye!")

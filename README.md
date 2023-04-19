@@ -26,7 +26,7 @@ The application will ask you to enter a question. Type in your question and pres
 
 To quit, enter "n" instead.
 
-Take note that unlike the official ChatGPT web app, the AI in this application will not remember previous questions and answers, so you won't be able to prime it or ask follow-up questions. This will be done in a different version.
+You can now ask follow-up questions. After asking your first question, your second question can be related to the first one, and ChatGPT should respond accordingly.
 
 ## ChatGPT details
 

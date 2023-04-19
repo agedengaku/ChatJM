@@ -17,4 +17,3 @@ def create_message(role, content):
 
 def insert_message(messages, new_message):
   messages.append(new_message)
-  return messages

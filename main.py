@@ -26,6 +26,4 @@ while end == "y":
     print("\nInvalid input. Please enter y or n.")
     end = getch.getch()
 
-  print(messages)
-
 print("\nGoodbye!")

@@ -1,13 +1,20 @@
-from chat import ask_question
+from chat import ask_question, create_message, insert_message
 from token_cost_calculation import calculate_cost
 import getch
 
 end = "y"
 
+messages=[{"role": "system", "content": "Answer as concisely as possible, unless otherwise instructed."}]
+
 while end == "y":
   question = input("\nAsk a question... ")
-  response = ask_question(question)
+  new_message = create_message("user", question)
+  new_messages = insert_message(messages, new_message)
+  messages = new_messages
+  response = ask_question(messages)
 
+  response_added_messages = insert_message(messages, response['choices'][0]['message'])
+  messages = response_added_messages
   answer = response['choices'][0]['message']['content']
   total_tokens_used = response['usage']['total_tokens']
 
